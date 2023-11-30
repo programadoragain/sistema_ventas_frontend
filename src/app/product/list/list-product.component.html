@@ -23,7 +23,7 @@
 
             
                 <div class="table-responsive">
-                    <table class="table" [dataSource]="dataSource">
+                    <table class="table" id="datatable">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -50,11 +50,13 @@
                                 <td>Notebooks</td>
                                 <td>1500.00</td>
                                 <td>4</td>
-                                <td>Activo</td>
                                 <td>
-                                    <a class="me-3" href="product-details.html">
-                                        <img src="assets/img/icons/eye.svg" alt="img">
-                                    </a>
+                                    <div class="status-toggle d-flex justify-content-between align-items-center">
+                                        <input type="checkbox" id="user2" class="check">
+                                        <label for="user2" class="checktoggle">checkbox</label>
+                                    </div>
+                                </td>
+                                <td>
                                     <a class="me-3" href="editproduct.html">
                                         <img src="assets/img/icons/edit.svg" alt="img">
                                     </a>

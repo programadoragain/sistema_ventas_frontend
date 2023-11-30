@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 import { GlobalConstants } from '../../constant/global-constants';
+import { DataTablesModule } from "angular-datatables";
 
 @Component({
   selector: 'app-list-product',
   standalone: true,
-  imports: [],
+  imports: [DataTablesModule],
   templateUrl: './list-product.component.html',
   styleUrl: './list-product.component.css'
 })
@@ -25,7 +26,15 @@ export class ListProductComponent implements OnInit {
 
   tableData() {
     this.productService.getAllProducts().subscribe((response: any) => {
-      this.dataSource = response;
+      this.dataSource= response;
+      setTimeout(() => {   
+          $('#datatable').DataTable( {
+                              pagingType: 'full_numbers',
+                              pageLength: 5,
+                              processing: true,
+                              lengthMenu : [5, 10, 25],
+                          });
+    }, 2);
     }, (error: any) => {
       console.log(error.error?.message);
       if (error.error?.message) this.responseMessage = error.error?.message;
@@ -38,7 +47,7 @@ export class ListProductComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    //this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   /*
