@@ -1,7 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { environment } from '../../environment/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-        // Paso directamente lo que tenga el formulario de login, sin tener una interfaz especifica para mandar
+  // Paso directamente lo que tenga el formulario de login, sin tener una interfaz especifica para mandar
   signup(data: any): Observable<any> {
     return this.httpClient.post(this.url + "api/usuario/registrar", data, {
       headers: new HttpHeaders().set('Content-Type', 'application/json')

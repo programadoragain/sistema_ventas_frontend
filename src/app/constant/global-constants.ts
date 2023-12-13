@@ -3,6 +3,8 @@ export class GlobalConstants{
 
     public static unauthorized: string= "You not have the permisions to access this page.";
 
+    public static welcome: string = "Bienvenido al sistema.";
+
     public static productExistError: string= "Product already exist.";
     public static productAdded: string= "Product added successfully."
     

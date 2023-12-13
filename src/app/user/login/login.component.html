@@ -1,1 +1,45 @@
-<p>login works!</p>
+<div class="login-wrapper">
+    <div class="login-content">
+        <div class="login-userset">
+            <div class="login-userheading">
+                <h3>Ingrese</h3>
+                <h4>Por favor complete sus credenciales</h4>
+            </div>
+            <form [formGroup]="loginForm">
+                <div class="form-login">
+                    <label>Email</label>
+                    <div class="form-addons">
+                        <input type="text" formControlName="email" placeholder="">
+                        <img src="assets/img/icons/mail.svg" alt="img">
+                    </div>
+    
+                    @if (loginForm.controls.email.errors.requiered) {
+                        <span class="bg-danger">Este campo es obligatorio.</span>
+                    }  
+                    @if (loginForm.controls.email.errors.pattern) {
+                        <span>This field is mandatory.</span>
+                    }
+
+                </div>
+                <div class="form-login">
+                    <label>Contraseña</label>
+                    <div class="pass-group">
+                        <input type="password" class="pass-input" formControlName="password" placeholder="">
+                        <span class="fas toggle-password fa-eye-slash"></span>
+                    </div>
+                </div>
+                <div class="form-login">
+                    <div class="alreadyuser">
+                        <h4><a href="forgetpassword.html" class="hover-a">¿Olvidó su contraseña?</a></h4>
+                    </div>
+                </div>
+                <div class="form-login">
+                    <a class="btn btn-login" (click)="handleSubmit()">Acceder</a>
+                </div>
+            </form>
+            <div class="signinform text-center">
+                <h4>¿Todavia no tiene cuenta? <a href="signup.html" class="hover-a">Registrese</a></h4>
+            </div>
+        </div>
+    </div>
+</div>

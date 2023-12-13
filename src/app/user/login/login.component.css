@@ -1,0 +1,10 @@
+.login-wrapper .login-content {
+    width: 40%;
+    height: 100vh;
+    margin-left: 420px;
+    padding: 30px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
